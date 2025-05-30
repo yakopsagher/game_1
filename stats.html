@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Scores</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
+  <style>
+    
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="navbar">
+      <h2>menu</h2>
+      <ul>
+        <li><a href="index.html"><i class="fa-solid fa-house"></i> home</a></li>
+        <li><a href="scores.html"><i class="fa-solid fa-square-poll-vertical"></i> scores</a></li>
+        <li><a href="devleopers.html"><i class="fa-solid fa-person"></i> devleopers</a></li>
+        <li><a href="info.html"><i class="fa-solid fa-circle-info"></i> info</a></li>
+      </ul>
+    </div>
+
+    <div class="s" style="overflow-y: auto; padding: 20px; color: white; text-align: center;">
+      <h1 style="margin-bottom: 20px;">إحصائيات اللاعبين</h1>
+
+      <table style="width: 100%; color: white; border-collapse: collapse;">
+        <thead>
+          <tr style="border-bottom: 1px solid #ccc;">
+            <th style="padding: 10px;">الترتيب</th>
+            <th style="padding: 10px;">الاسم</th>
+            <th style="padding: 10px;">النقاط</th>
+          </tr>
+        </thead>
+        <tbody id="stats-body">
+          
+        </tbody>
+      </table>
+      <br> <br>
+
+      <div class="stats-buttons">
+        <button class="back-to-add" onclick="window.location.href='index.html'">➕ العودة لإضافة لاعب جديد</button>
+        <button class="delete-player" onclick="clearStats()">🗑️ حذف الإحصائيات</button>
+      </div>
+    </div>
+  </div>
+
+  <script >
+    const statsBody = document.getElementById("stats-body");
+    const results = JSON.parse(localStorage.getItem("quizResults") || "[]");
+
+    const sorted = results.sort((a, b) => b.score - a.score);
+
+    sorted.forEach((player, index) => {
+      const row = document.createElement("tr");
+      row.innerHTML = `
+        <td style="padding: 10px;">${index + 1}</td>
+        <td style="padding: 10px;">${player.name}</td>
+        <td style="padding: 10px;">${player.score}</td>
+      `;
+      statsBody.appendChild(row);
+    });
+
+    function clearStats() {
+      if (confirm("هل أنت متأكد من حذف جميع الإحصائيات؟")) {
+        localStorage.removeItem("quizResults");
+        location.reload();
+      }
+    }
+     function startGame(event) {
+    event.preventDefault();
+    const playerName = document.getElementById("player-name").value.trim();
+    if (playerName) {
+      localStorage.setItem("currentPlayer", playerName);
+      window.location.href = "questoins.html";
+    }
+  }
+  </script>
+</body>
+
+</html>

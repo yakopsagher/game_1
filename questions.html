@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>quistion</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
+  <style>
+ 
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="navbar">
+      <h2>menu</h2>
+      <ul>
+        <li>
+          <a href="index.html">
+            <i class="fa-solid fa-house"></i>
+            home
+          </a>
+        </li>
+        <li>
+          <a href="scores.html">
+            <i class="fa-solid fa-square-poll-vertical"></i>
+            scores
+          </a>
+        </li>
+        <li>
+          <a href="devleopers.html">
+            <i class="fa-solid fa-person"></i>
+            devleopers
+          </a>
+        </li>
+        <li>
+          <a href="info.html">
+            <i class="fa-solid fa-circle-info"></i>
+            info
+          </a>
+        </li>
+      </ul>
+    </div>
+
+    <div class="box" id="quiz-box">
+      <form id="quiz-form">
+        <label for="question">
+          <h1 id="question-text">Loading question...</h1>
+        </label>
+        <div id="options">
+         
+        </div>
+        <input type="submit" value="التالي" class="input-submit" id="next-btn" />
+      </form>
+
+     
+      <div id="completion-message">
+        <h2>✅ تم اجتياز الامتحان بنجاح!</h2>
+       
+        <button id="new-player-btn">➕ إضافة لاعب آخر</button>
+       <a href="stats.html">
+        
+        <button id="view-stats-btn">📊 عرض الإحصائيات</button>
+        </a>
+        
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js">
+  
+  </script>
+</body>
+
+</html>
